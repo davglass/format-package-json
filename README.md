@@ -20,4 +20,7 @@ format('/path/to/package.json', function (err, data) {
 })
 ```
 
+build
+-----
 
+[![Build Status](https://travis-ci.org/davglass/format-package-json.png?branch=master)](https://travis-ci.org/davglass/format-package-json)
