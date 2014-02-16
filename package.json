@@ -1,6 +1,6 @@
 {
   "name": "format-package-json",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Format package.json based on the current one",
   "main": "index.js",
   "scripts": {
