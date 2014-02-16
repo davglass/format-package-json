@@ -1,0 +1,33 @@
+{
+  "name": "format-package-json",
+  "version": "0.0.0",
+  "description": "Format package.json based on the current one",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover --print both vows -- --spec ./tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davglass/format-package-json.git"
+  },
+  "keywords": [
+    "format",
+    "package.json",
+    "formatter",
+    "helper"
+  ],
+  "author": "Dav Glass <davglass@gmail.com>",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/davglass/format-package-json/issues"
+  },
+  "homepage": "https://github.com/davglass/format-package-json",
+  "devDependencies": {
+    "istanbul": "~0.2.4",
+    "vows": "~0.7.0",
+    "mockery": "~1.4.0"
+  },
+  "dependencies": {
+    "detect-indent": "~0.1.3"
+  }
+}
