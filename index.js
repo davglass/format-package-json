@@ -28,28 +28,33 @@ var read = function (file, cb) {
     })
 }
 
+var write = function (file, data, options, callback) {
+    var str = JSON.stringify(data, null, options.spaces);
+    if (options.cf) {
+        str = str.split(/(,\n\s+)/)
+            .map(function (e, i) {
+                return i % 2 ? '\n' + e.substring(4) + ', ' : e
+            })
+            .join('')
+    }
+    str += options.ending
+    fs.writeFile(file, str, 'utf8', function (err) {
+        /* istanbul ignore next */
+        if (err) return callback(err)
+        callback(null, str)
+    });
+}
+
 var format = function (file, data, callback) {
     read(file, function (err, options) {
         /* istanbul ignore next */
         if (err) return callback(err)
-        var str = JSON.stringify(data, null, options.spaces);
-        if (options.cf) {
-            str = str.split(/(,\n\s+)/)
-                .map(function (e, i) {
-                    return i % 2 ? '\n' + e.substring(4) + ', ' : e
-                })
-                .join('')
-        }
-        str += options.ending;
-        fs.writeFile(file, str, 'utf8', function (err) {
-            /* istanbul ignore next */
-            if (err) return callback(err)
-            callback(null, str)
-        });
+        write(file, data, options, callback)
     });
 }
 
-format.read = read;
+format.read = read
+format.write = write
 
 module.exports = format
 
