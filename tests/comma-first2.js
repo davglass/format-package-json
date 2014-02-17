@@ -11,7 +11,7 @@ var start = fs.readFileSync(file, 'utf8')
 var tests = {
     'should read comma-first package.json': {
         topic: function () {
-            read(file, this.callback);
+            return write.readSync(file)
         },
         'as two spaces': function (d) {
             assert.equal(2, d.spaces);
@@ -28,11 +28,11 @@ var tests = {
     },
     'write': {
         topic: function () {
-            write(file, {
+            return write.sync(file, {
                 name: "comma first - two",
                 description: "This is a test",
                 version: "1.2.3"
-            }, this.callback);
+            });
         },
         'and format properly': function () {
             var end = fs.readFileSync(file, 'utf8')

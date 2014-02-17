@@ -20,6 +20,13 @@ format('/path/to/package.json', function (err, data) {
 })
 ```
 
+sync
+----
+
+  * `format.sync`
+  * `format.readSync`
+  * `format.writeSync`
+
 build
 -----
 
