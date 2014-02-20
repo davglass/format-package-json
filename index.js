@@ -49,7 +49,9 @@ var read = function (file, cb) {
 }
 
 var post = function (data, options) {
-    var str = JSON.stringify(data, null, options.spaces);
+    options.spaces = options.spaces || 2
+    var str = JSON.stringify(data, null, options.spaces),
+        ending = (options.ending === undefined) ? '\n' : options.ending;
     if (options.cf) {
         str = str.split(/(,\n\s+)/)
             .map(function (e, i) {
@@ -57,7 +59,7 @@ var post = function (data, options) {
             })
             .join('')
     }
-    str += options.ending
+    str += ending
     return str;
 }
 
