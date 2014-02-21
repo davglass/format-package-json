@@ -1,7 +1,7 @@
 format-package-json
 ===================
 
-Module attempts to detect the spacing used, the final line ending and if it's comma first or not.
+Module attempts to detect the spacing used, the final line ending.
 
 It will then attempt to reformat an `Object` back into this string and save the file.
 
