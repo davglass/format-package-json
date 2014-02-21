@@ -21,9 +21,6 @@ var tests = {
         'as four space indent': function (d) {
             assert.equal('    ', d.indent);
         },
-        'not as comma-first': function (d) {
-            assert.isFalse(d.cf)
-        },
         'and NOT have a new line at end': function (d) {
             assert.equal('', d.ending);
         }

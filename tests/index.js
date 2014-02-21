@@ -14,9 +14,6 @@ var tests = {
         'as two space indent': function (d) {
             assert.equal(2, d.indent.length);
         },
-        'not as comma-first': function (d) {
-            assert.isFalse(d.cf)
-        },
         'and have new line at end': function (d) {
             assert.equal('\n', d.ending);
         }
