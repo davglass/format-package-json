@@ -32,9 +32,20 @@ var process = function (str) {
     };
 }
 
+var defaults = {
+    indent: '  ',
+    spaces: 2,
+    ending: '\n'
+}
+
 var read = function (file, cb) {
     fs.readFile(file, 'utf8', function (err, str) {
-        if (err) return cb(err)
+        if (err) {
+            if (err.code === 'ENOENT') {
+                return cb(null, defaults);
+            }
+            return cb(err);
+        }
         cb(null, process(str));
     })
 }

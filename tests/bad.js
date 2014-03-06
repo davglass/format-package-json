@@ -7,12 +7,10 @@ var tests = {
     'should error on bad json': {
         topic: function () {
             var self = this;
-            read(path.join(__dirname, './json/bad.json'), function (err) {
-                self.callback(null, err)
-            });
+            read(path.join(__dirname, './json/bad.json'), self.callback);
         },
-        'should error': function (d) {
-            assert.equal(d.code, 'ENOENT');
+        'should return defaults': function (d) {
+            assert.equal(d.spaces, 2);
         }
     }
 }
